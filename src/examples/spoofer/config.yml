@@ -1,0 +1,131 @@
+# SETUP
+uid: d3a2fb09-2d0f-418a-9c7b-27105dc3c172
+name: Spoofer
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: ClutterMap
+    type: text/csv
+    display: HeatMap
+    charset: UTF-8
+    dataTypes: float,float,uint32
+    header: Latitude_deg,Longitude_deg,Intensity
+    dotSize: 100
+    refreshPeriod: PT4S
+  - key: Plots
+    type: text/csv
+    display: Plot
+    charset: UTF-8
+    dataTypes: uint64,float,float,float,float,float,uint32
+    header: Time_ms,Latitude_deg,Longitude_deg,Range_m,Azimuth_rad,Speed_ms,Type
+    classifications:
+      - label: type0
+        paletteIndex: 0
+      - label: type1
+        paletteIndex: 1
+      - label: type2
+        paletteIndex: 6
+      - label: type3
+        paletteIndex: 12
+    refreshPeriod: PT4S
+  - key: Strobes
+    type: text/csv
+    display: Strobe
+    charset: UTF-8
+    dataTypes: string,string,float,float,float,float,uint32
+    header: Time,Identifier,Origin_Latitude_deg,Origin_Longitude_deg,Range_m,Azimuth_deg,Type
+    classifications:
+      - label: type0
+        paletteIndex: 2
+      - label: type1
+        paletteIndex: 8
+      - label: type2
+        paletteIndex: 10
+      - label: type3
+        paletteIndex: 13
+    refreshPeriod: PT4S
+  - key: Tracks
+    type: text/csv
+    display: Track
+    charset: UTF-8
+    dataTypes: string_24,string_5,float,float,float,float,uint32,string_254
+    header: Time,Identifier,Latitude_deg,Longitude_deg,Bearing_deg,Speed_ms,Type,Info
+    trailLength: 3000
+    classifications:
+      - label: type0
+        symbolIndex: 0
+        paletteIndex: 2
+      - label: type1
+        symbolIndex: 1
+        paletteIndex: 4
+      - label: type2
+        symbolIndex: 2
+        paletteIndex: 13
+    refreshPeriod: PT4S
+# CONTROLS
+controlSchema:
+  # Interval - Slider control
+  - type: Slider
+    uid: 65a3dcb8-7cb5-49d1-9afb-91e74c815f85
+    label: Burst Interval [ms]
+    min: 1
+    max: 1000
+    value: 250
+  # ClutterMap - Radio control
+  - type: Radio
+    uid: 89f54f41-e4ec-4f71-9791-25b7e68b9cef
+    label: Clutter send mode
+    selected: 0
+    items:
+      - Default
+      - Perf. Test
+  # ClutterMap - Slider control
+  - type: Slider
+    uid: dc6dc995-a2e2-42a3-a99b-de6a19debd1f
+    label: ClutterMap Rate [#/sector]
+    min: 0
+    max: 65536
+    value: 0
+  # Plots - Radio control
+  - type: Radio
+    uid: fa42bdab-da96-4de8-8b10-6cf321d4aa3e
+    label: Plots send mode
+    selected: 0
+    items:
+      - Default
+      - Perf. Test
+  # Plots - Slider control
+  - type: Slider
+    uid: c756cbb6-e956-4bc2-a8ab-7e2b900de4c8
+    label: Plots Rate [#/sector]
+    min: 0
+    max: 65536
+    value: 0
+  # Strobes - Slider control
+  - type: Slider
+    uid: b55d3128-af63-4e8f-a72d-90a167a9d637
+    label: Strobes Rate [#/sector]
+    min: 0
+    max: 4096
+    value: 0
+  # Tracks - Radio control
+  - type: Radio
+    uid: ba9fd172-1c65-4b61-a754-54ef4ae92b06
+    label: Tracks send mode
+    selected: 0
+    items:
+      - Scanning (4Hz)
+      - Tracking (1Hz)
+  # Scanning Tracks - Slider control
+  - type: Slider
+    uid: 5ade2940-4dda-4e60-bccf-241fee044881
+    label: Tracks Rate (scanning) [#/sector]
+    min: 0
+    max: 512
+    value: 0

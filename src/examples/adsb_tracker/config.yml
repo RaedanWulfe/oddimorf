@@ -1,0 +1,44 @@
+# SETUP
+uid: 95a91e84-303a-4251-8191-43c984d13eb0
+name: ADSB
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: Tracks
+    type: text/csv
+    display: Track 
+    charset: UTF-8
+    dataTypes: string_24,string_5,float,float,float,float,uint32,string_254
+    header: Time,Identifier,Latitude_deg,Longitude_deg,Bearing_deg,Speed_ms,Type,Info
+    trailLength: 500
+    classifications:
+      - label: default
+        symbolIndex: 0
+        paletteIndex: 5
+    refreshPeriod: PT90S
+# CONTROLS
+controlSchema:
+  - type: TextBox
+    uid: 163eb4fd-7e90-434b-b363-bf8203919bea
+    label: Latitude Min
+    value: "-45"
+  - type: TextBox
+    uid: c9124c43-b349-4e1f-bb21-867a667710ab
+    label: Latitude Max
+    value: "0"
+  - type: TextBox
+    uid: 553760fc-0dbb-4044-ad4a-cf263d9f44e4
+    label: Longitude Min
+    value: "0"
+  - type: TextBox
+    uid: 2cba3737-be04-41d3-88a1-a12f41f58edb
+    label: Longitude Max
+    value: "50"
+#CUSTOM
+adbsUrl: "https://opensky-network.org/api/states/all?lamin={0}&lomin={1}&lamax={2}&lomax={3}"

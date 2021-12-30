@@ -1,0 +1,17 @@
+# SETUP
+uid: 6447acda-779a-11eb-9439-0242ac130002
+name: Recorder
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# CONTROLS
+controlSchema:
+  # TextBox control
+  - type: TextBox
+    uid: 1e581b30-b31a-42c0-acb5-ee9c7812c9b6
+    label: Output Directory
+    value: "./"

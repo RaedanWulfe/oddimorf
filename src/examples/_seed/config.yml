@@ -1,0 +1,145 @@
+# SETUP
+uid: TODO
+name: TODO
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+# DATA OUT
+dataSchema:
+ HeatMap
+  - key: TODO
+    type: text/csv
+    display: HeatMap
+    charset: UTF-8
+    dataTypes: float,float,uint32
+    header: Latitude_deg,Longitude_deg,Intensity
+    dotSize: 100
+    refreshPeriod: PT4S
+ Plot
+  - key: TODO
+    type: text/csv
+    display: Plot
+    charset: UTF-8
+    dataTypes: uint64,float,float,float,float,float,uint32
+    header: Time_ms,Latitude_deg,Longitude_deg,Range_m,Azimuth_rad,Speed_ms,Type
+    classifications:
+      - label: A
+        paletteIndex: 0 # Light White
+      - label: B
+        paletteIndex: 1 # Light Green
+      - label: C
+        paletteIndex: 2 # Light Blue
+      - label: D
+        paletteIndex: 3 # Light Red
+      - label: E
+        paletteIndex: 4 # Light Cyan
+      - label: F
+        paletteIndex: 5 # Light Magenta
+      - label: G
+        paletteIndex: 6 # Light Yellow
+      - label: H
+        paletteIndex: 7 # Dark White
+      - label: I
+        paletteIndex: 8 # Dark Green
+      - label: J
+        paletteIndex: 9 # Dark Blue
+      - label: K
+        paletteIndex: 10 # Dark Red
+      - label: L
+        paletteIndex: 11 # Dark Cyan
+      - label: M
+        paletteIndex: 12 # Dark Magenta
+      - label: N
+        paletteIndex: 13 # Dark Yellow
+    refreshPeriod: PT4S
+ Strobe
+  - key: TODO
+    type: text/csv
+    display: Strobe
+    charset: UTF-8
+    dataTypes: string,string,float,float,float,float,uint32
+    header: Time,Identifier,Origin_Latitude_deg,Origin_Longitude_deg,Range_m,Azimuth_deg,Type
+    classifications:
+      - label: A
+        paletteIndex: 0 # Light White
+      - label: B
+        paletteIndex: 1 # Light Green
+      - label: C
+        paletteIndex: 2 # Light Blue
+      - label: D
+        paletteIndex: 3 # Light Red
+      - label: E
+        paletteIndex: 4 # Light Cyan
+      - label: F
+        paletteIndex: 5 # Light Magenta
+      - label: G
+        paletteIndex: 6 # Light Yellow
+      - label: H
+        paletteIndex: 7 # Dark White
+      - label: I
+        paletteIndex: 8 # Dark Green
+      - label: J
+        paletteIndex: 9 # Dark Blue
+      - label: K
+        paletteIndex: 10 # Dark Red
+      - label: L
+        paletteIndex: 11 # Dark Cyan
+      - label: M
+        paletteIndex: 12 # Dark Magenta
+      - label: N
+        paletteIndex: 13 # Dark Yellow
+    refreshPeriod: PT4S
+ Track
+  - key: TODO
+    type: text/csv
+    display: Track
+    charset: UTF-8
+    dataTypes: string_24,string_5,float,float,float,float,uint32,string_254
+    header: Time,Identifier,Latitude_deg,Longitude_deg,Bearing_deg,Speed_ms,Type,Info
+    trailLength: 1000
+    classifications:
+      - label: A
+        symbolIndex: 0
+        paletteIndex: 2 # Light Blue
+      - label: B
+        symbolIndex: 1
+        paletteIndex: 4 # Light Cyan
+      - label: C
+        symbolIndex: 2
+        paletteIndex: 13 # Dark Yellow
+    refreshPeriod: PT4S
+# CONTROLS
+controlSchema:
+ TextBox control
+  - type: TextBox
+    uid: TODO
+    label: TODO
+    value: "DEFAULT"
+ CheckBox control
+  - type: CheckBox
+    uid: TODO
+    label: TODO
+    items:
+      - label: A
+        isChecked: false
+      - label: B
+        isChecked: false
+      - label: C
+        isChecked: false
+ Radio control
+  - type: Radio
+    uid: TODO
+    label: TODO
+    selected: 1
+    items:
+      - A
+      - B
+      - C
+ Slider control
+  - type: Slider
+    uid: TODO
+    label: TODO
+    min: 0
+    max: 10
+    value: 0

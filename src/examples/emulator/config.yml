@@ -1,0 +1,32 @@
+# SETUP
+uid: 1ebcae00-bf88-4722-b1b5-c2799ee1555c
+name: Emulator
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: Raw
+    type: application/octet-stream
+    dataTypes: uint64,float,float,float,float
+    header: Time_ms,Range_m,Azimuth_deg,Speed_ms,Intensity
+# CONTROLS
+controlSchema:
+  # Slider control
+  - type: Slider
+    uid: ea7439b6-aa48-406e-b506-d3f481d9e55c
+    label: Clutter / Sector
+    min: 0
+    max: 3000
+    value: 50
+  # Slider control
+  - type: Slider
+    uid: 0bc97b4d-6c84-4b99-bd57-39953341a552
+    label: Tracks / Sector
+    min: 0
+    max: 10
+    value: 1

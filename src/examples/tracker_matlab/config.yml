@@ -1,0 +1,40 @@
+# SETUP
+uid: fe5f1400-5cff-44cb-9c4b-f4392359f1f3
+name: Tracker
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: Tracks
+    type: text/csv
+    display: Track
+    charset: UTF-8
+    # dataTypes: string,string,float,float,float,float,uint32,
+    dataTypes: string_24,string_5,float,float,float,float,uint32,string_254
+    header: Time,Identifier,Latitude_deg,Longitude_deg,Bearing_deg,Speed_ms,Type,Info
+    trailLength: 500
+    classifications:
+      - label: type0
+        symbolIndex: 0
+        paletteIndex: 9
+      - label: type1
+        symbolIndex: 1
+        paletteIndex: 11
+      - label: type2
+        symbolIndex: 2
+        paletteIndex: 13
+    refreshPeriod: PT4S
+# CONTROLS
+controlSchema:
+  # M-Value slider control
+  - type: Slider
+    uid: e0d8afdf-1658-44e7-9ada-8b0a967cd1de
+    label: Required detections
+    min: 2
+    max: 6
+    value: 3

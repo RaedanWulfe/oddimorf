@@ -1,0 +1,45 @@
+# SETUP
+uid: 6b8b4c22-779a-11eb-9439-0242ac130002
+name: Processor
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: ClutterMap
+    type: text/csv
+    display: HeatMap
+    charset: UTF-8
+    dataTypes: float,float,uint32
+    header: Latitude_deg,Longitude_deg,Intensity
+    dotSize: 100
+    refreshPeriod: PT4S
+  - key: Plots
+    type: text/csv
+    display: Plot
+    charset: UTF-8
+    dataTypes: uint64,float,float,float,float,float,uint32
+    header: Time_ms,Latitude_deg,Longitude_deg,Range_m,Azimuth_rad,Speed_ms,Type
+    classifications:
+      - label: type0
+        paletteIndex: 0
+      - label: type1
+        paletteIndex: 1
+      - label: type2
+        paletteIndex: 6
+      - label: type3
+        paletteIndex: 12
+    refreshPeriod: PT4S
+# CONTROLS
+controlSchema:
+  # Slider control
+  - type: Slider
+    uid: c24e3607-3cfe-4d3d-982b-7aa2d94536a0
+    label: Plots Threshold
+    min: 1
+    max: 20
+    value: 16

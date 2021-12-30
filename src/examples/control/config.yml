@@ -1,0 +1,58 @@
+# SETUP
+uid: 7934260a-779a-11eb-9439-0242ac130002
+name: Control
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# CONTROLS
+controlSchema:
+  # Print state in console
+  - type: Radio
+    uid: 8e4fcf4e-b0de-11eb-8529-0242ac130003
+    label: Print to console
+    selected: 0
+    items:
+      - 'Yes'
+      - 'No'
+  # Print state in console
+  - type: Radio
+    uid: a21be1aa-b103-11eb-8529-0242ac130003
+    label: Write mechanism
+    selected: 0
+    items:
+      - 'Event based'
+      - 'Poll based'
+  # TextBox control
+  - type: TextBox
+    uid: 19627c40-7edf-4645-9813-a6056d1374f5
+    label: Value Control
+    value: "Test"
+  # CheckBox control
+  - type: CheckBox
+    uid: ab47ff54-002e-4875-9f23-696fffd859a2
+    label: CheckBox Control
+    items:
+      - label: Item0
+        isChecked: false
+      - label: Item1
+        isChecked: false
+  # Radio control
+  - type: Radio
+    uid: a63bbc2f-217c-41cd-82e3-342563cf602a
+    label: Radio Control
+    selected: 1
+    items:
+      - Item0
+      - Item1
+      - Item2
+  # Slider control
+  - type: Slider
+    uid: 037805d5-4cf8-4120-b1aa-e7386994113b
+    label: Slider Control
+    min: 0
+    max: 10
+    value: 0

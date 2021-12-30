@@ -1,0 +1,30 @@
+# SETUP
+uid: 3d3805e0-aa71-429e-89cc-5cb864d32679
+name: Data Feeder
+broker:
+  ip: 127.0.0.1
+  port: 1883
+  useTls: false
+  # ip: broker-test.eastus.cloudapp.azure.com
+  # port: 9000
+  # useTls: true
+# DATA OUT
+dataSchema:
+  - key: Raw
+    type: application/octet-stream
+    dataTypes: uint64,float,float,float,float
+    header: Time_ms,Range_m,Azimuth_deg,Speed_ms,Intensity
+# CONTROLS
+controlSchema:
+  # Slider control
+  - type: Slider
+    uid: c0da919f-7442-49fb-adc5-af480364297b
+    label: Burst Interval [ms]
+    min: 0
+    max: 1000
+    value: 1000
+  # TextBox control
+  - type: TextBox
+    uid: 1a090dde-053b-45b0-82fb-ca3446d7a265
+    label: Input Directory
+    value: "./"
